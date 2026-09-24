@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AZ Tech Frida | Timber & Sawmill Operations - Sandhill, Belize</title>
+  
+  <!-- PWA Meta Tags -->
+  <meta name="theme-color" content="#1b3b2b">
+  <meta name="description" content="AZ Tech Frida - Sawmill, sustainably harvested Belizean hardwoods, custom dimensional lumber, kiln drying, S4S, and international export out of Big Creek Port & Bomba Dock.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="AZ Tech Frida">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              DEFAULT: '#1b3b2b',
+              light: '#2a523d',
+              dark: '#11261b'
+            },
+            teak: {
+              DEFAULT: '#b87d4b',
+              light: '#d29863',
+              dark: '#8e5b30'
+            },
+            amberwood: '#e5a93c',
+            charcoal: '#1a1d20'
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .glass-card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, rgba(27,59,43,0.95) 0%, rgba(17,38,27,0.9) 100%);
+    }
+    .wood-grain-bg {
+      background-color: #fcfbfa;
+      background-image: radial-gradient(#b87d4b 0.5px, transparent 0.5px), radial-gradient(#b87d4b 0.5px, #fcfbfa 0.5px);
+      background-size: 20px 20px;
+      background-position: 0 0,10px 10px;
+      background-opacity: 0.03;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #b87d4b;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased flex flex-col min-h-screen wood-grain-bg">
+
+  <!-- PWA Installation Banner -->
+  <div id="pwa-install-banner" class="hidden bg-amberwood text-forest-dark px-4 py-2.5 text-xs sm:text-sm font-semibold flex items-center justify-between shadow-md border-b border-amber-400 sticky top-0 z-50">
+    <div class="flex items-center space-x-2">
+      <i data-lucide="download" class="w-4 h-4 text-forest-dark"></i>
+      <span>Install <strong>AZ Tech Frida App</strong> for offline access in remote logging areas!</span>
+    </div>
+    <div class="flex items-center space-x-2">
+      <button onclick="installPWA()" class="bg-forest text-white px-3 py-1 rounded text-xs hover:bg-forest-light transition">Install App</button>
+      <button onclick="dismissPwaBanner()" class="text-forest-dark hover:text-red-800 font-bold px-1">✕</button>
+    </div>
+  </div>
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-forest-dark text-slate-200 text-xs py-2 px-4 border-b border-forest-light/30">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="flex items-center space-x-4">
+        <span class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-amberwood"></i> Mile 19 ½ Phillip Goldson Hwy, Sandhill, Belize Dist.</span>
+        <span class="hidden md:flex items-center gap-1.5"><i data-lucide="anchor" class="w-3.5 h-3.5 text-amberwood"></i> Ports: Big Creek Port / Bomba Dock</span>
+      </div>
+      <div class="flex items-center space-x-4">
+        <a href="tel:+5016039000" class="flex items-center gap-1 hover:text-amberwood transition"><i data-lucide="phone" class="w-3.5 h-3.5"></i> # 501 603 9000</a>
+        <a href="https://wa.me/5016039000" target="_blank" class="flex items-center gap-1 text-emerald-400 hover:text-emerald-300 font-medium"><i data-lucide="message-circle" class="w-3.5 h-3.5"></i> WhatsApp Us</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Header -->
+  <header class="bg-forest text-white sticky top-0 z-40 shadow-lg border-b border-teak/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        
+        <!-- Logo -->
+        <a href="#" onclick="showPage('home')" class="flex items-center space-x-3 group">
+          <div class="w-11 h-11 rounded-lg bg-teak flex items-center justify-center text-white shadow-md group-hover:bg-teak-light transition">
+            <i data-lucide="trees" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <div class="font-serif text-2xl font-bold tracking-tight text-white flex items-center gap-1.5">
+              AZ TECH FRIDA <span class="text-xs font-sans px-1.5 py-0.5 bg-amberwood text-forest-dark rounded font-bold uppercase tracking-wider">BZ</span>
+            </div>
+            <p class="text-[10px] text-slate-300 font-medium tracking-widest uppercase">Sawmill & Timber Industry Specialists</p>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex space-x-1 lg:space-x-2">
+          <button onclick="showPage('home')" id="nav-home" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold transition hover:bg-forest-light text-amberwood">Home</button>
+          <button onclick="showPage('about')" id="nav-about" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold transition hover:bg-forest-light text-slate-200">About Us</button>
+          <button onclick="showPage('catalog')" id="nav-catalog" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold transition hover:bg-forest-light text-slate-200">Wood Catalog</button>
+          <button onclick="showPage('services')" id="nav-services" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold transition hover:bg-forest-light text-slate-200">Milling & Services</button>
+          <button onclick="showPage('order')" id="nav-order" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold transition bg-teak hover:bg-teak-light text-white shadow-sm ml-2">Order & Quotes</button>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <div class="flex md:hidden items-center space-x-2">
+          <button onclick="showPage('order')" class="bg-teak px-3 py-1.5 rounded text-xs font-semibold text-white">Order</button>
+          <button onclick="toggleMobileMenu()" class="p-2 rounded-md text-slate-200 hover:text-white hover:bg-forest-light focus:outline-none">
+            <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-forest-dark border-t border-forest-light px-4 pt-2 pb-6 space-y-2">
+      <button onclick="showPage('home'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-amberwood">Home</button>
+      <button onclick="showPage('about'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-forest-light">About Us</button>
+      <button onclick="showPage('catalog'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-forest-light">Belize Wood Catalog</button>
+      <button onclick="showPage('services'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-forest-light">Milling Services</button>
+      <button onclick="showPage('order'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-white bg-teak hover:bg-teak-light mt-2">Place Order / Enquiry</button>
+      <div class="pt-4 border-t border-forest-light text-xs text-slate-400 space-y-1">
+        <p><i data-lucide="map-pin" class="inline w-3 h-3 text-amberwood"></i> Sandhill, Mile 19 ½ Phillip Goldson Hwy</p>
+        <p><i data-lucide="phone" class="inline w-3 h-3 text-amberwood"></i> # 501 603 9000</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT AREA -->
+  <main class="flex-grow">
+
+    <!-- PAGE 1: HOME -->
+    <section id="page-home" class="page-section">
+      <!-- Hero Banner -->
+      <div class="relative bg-forest text-white overflow-hidden py-16 lg:py-24 shadow-inner">
+        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#b87d4b_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 space-y-6">
+              <div class="inline-flex items-center space-x-2 bg-forest-light/80 border border-teak/40 rounded-full px-3 py-1 text-xs text-amberwood font-semibold">
+                <i data-lucide="shield-check" class="w-4 h-4"></i>
+                <span>Premier Sawmill & Timber Suppliers in Belize</span>
+              </div>
+              <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
+                Sustainable Belizean Timber & Precision Milling
+              </h1>
+              <p class="text-base sm:text-lg text-slate-300 max-w-2xl font-normal leading-relaxed">
+                Operating out of Sandhill, Belize District. We harvest, mill, kiln-dry, and ship world-class Belizean hardwoods including Genuine Mahogany, Santa Maria, Yemeri, and Rosewood for local construction and export.
+              </p>
+              
+              <div class="flex flex-wrap gap-4 pt-2">
+                <button onclick="showPage('order')" class="bg-teak hover:bg-teak-light text-white font-bold px-6 py-3.5 rounded-lg shadow-lg hover:shadow-xl transition flex items-center gap-2">
+                  <i data-lucide="calculator" class="w-5 h-5"></i> Calculate Board Feet & Order
+                </button>
+                <button onclick="showPage('catalog')" class="bg-forest-light border border-slate-500 hover:bg-forest-dark text-white font-semibold px-6 py-3.5 rounded-lg transition flex items-center gap-2">
+                  <i data-lucide="grid" class="w-5 h-5"></i> Explore Species
+                </button>
+              </div>
+
+              <!-- Logistics Tag -->
+              <div class="pt-6 grid grid-cols-2 sm:grid-cols-3 gap-4 border-t border-forest-light/60 text-xs text-slate-300">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="truck" class="w-4 h-4 text-amberwood"></i> Countrywide Belize Delivery
+                </div>
+                <div class="flex items-center gap-2">
+                  <i data-lucide="ship" class="w-4 h-4 text-amberwood"></i> Big Creek Port Ready
+                </div>
+                <div class="flex items-center gap-2">
+                  <i data-lucide="anchor" class="w-4 h-4 text-amberwood"></i> Bomba Dock Access
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Calculation Tool Preview Card -->
+            <div class="lg:col-span-5">
+              <div class="glass-card rounded-2xl p-6 shadow-2xl text-slate-900 border border-amberwood/30">
+                <div class="flex justify-between items-center mb-4">
+                  <h3 class="font-serif text-xl font-bold text-forest">Quick BF Estimator</h3>
+                  <span class="text-xs bg-forest text-amberwood px-2 py-1 rounded font-mono font-bold">Standard Formula</span>
+                </div>
+                <p class="text-xs text-slate-600 mb-4">Board Feet (BF) = (Thickness" × Width" × Length') ÷ 12</p>
+                
+                <div class="space-y-3">
+                  <div class="grid grid-cols-3 gap-2">
+                    <div>
+                      <label class="block text-xs font-semibold text-slate-700">Thick (Inches)</label>
+                      <input type="number" id="quick-t" value="2" min="0.5" step="0.25" oninput="calcQuickBf()" class="w-full mt-1 p-2 text-sm border rounded bg-white text-slate-900 focus:ring-2 focus:ring-teak outline-none">
+                    </div>
+                    <div>
+                      <label class="block text-xs font-semibold text-slate-700">Width (Inches)</label>
+                      <input type="number" id="quick-w" value="6" min="1" step="0.5" oninput="calcQuickBf()" class="w-full mt-1 p-2 text-sm border rounded bg-white text-slate-900 focus:ring-2 focus:ring-teak outline-none">
+                    </div>
+                    <div>
+                      <label class="block text-xs font-semibold text-slate-700">Length (Feet)</label>
+                      <input type="number" id="quick-l" value="12" min="1" step="1" oninput="calcQuickBf()" class="w-full mt-1 p-2 text-sm border rounded bg-white text-slate-900 focus:ring-2 focus:ring-teak outline-none">
+                    </div>
+                  </div>
+
+                  <div>
+                    <label class="block text-xs font-semibold text-slate-700">Quantity (Pieces)</label>
+                    <input type="number" id="quick-qty" value="10" min="1" oninput="calcQuickBf()" class="w-full mt-1 p-2 text-sm border rounded bg-white text-slate-900 focus:ring-2 focus:ring-teak outline-none">
+                  </div>
+
+                  <div class="p-3 bg-amber-50 rounded-lg border border-amber-200 flex justify-between items-center mt-4">
+                    <span class="text-xs text-forest font-semibold">Estimated Total Vol:</span>
+                    <span class="text-xl font-bold font-mono text-forest" id="quick-result">120.0 BF</span>
+                  </div>
+
+                  <button onclick="transferToOrder()" class="w-full bg-forest hover:bg-forest-dark text-white font-bold py-2.5 rounded-lg text-sm transition shadow">
+                    Transfer to Full Quote Builder →
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Metrics -->
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white rounded-xl shadow-lg p-6 border border-slate-200">
+          <div class="text-center border-r border-slate-200 last:border-none pr-2">
+            <p class="text-2xl sm:text-3xl font-bold text-forest">Sandhill</p>
+            <p class="text-xs text-slate-500 font-medium uppercase mt-1">Mile 19 ½ Sawmill Facility</p>
+          </div>
+          <div class="text-center border-r border-slate-200 last:border-none pr-2">
+            <p class="text-2xl sm:text-3xl font-bold text-teak">100%</p>
+            <p class="text-xs text-slate-500 font-medium uppercase mt-1">Belize Sustainable Hardwoods</p>
+          </div>
+          <div class="text-center border-r border-slate-200 last:border-none pr-2">
+            <p class="text-2xl sm:text-3xl font-bold text-forest">S4S & KD</p>
+            <p class="text-xs text-slate-500 font-medium uppercase mt-1">Surfacing & Kiln Drying</p>
+          </div>
+          <div class="text-center">
+            <p class="text-2xl sm:text-3xl font-bold text-teak">2 Ports</p>
+            <p class="text-xs text-slate-500 font-medium uppercase mt-1">Big Creek & Bomba Export</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Belize Wood Highlight -->
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest">Featured Belizean Wood Species</h2>
+          <p class="text-slate-600 mt-2">Milled to perfection at our Sandhill facility for cabinetry, flooring, boat building, and structural framing.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Card 1 -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden border border-slate-200 hover:shadow-xl transition">
+            <div class="h-48 bg-amber-900/80 relative p-6 text-white flex flex-col justify-end" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent), #8e5b30;">
+              <span class="absolute top-4 right-4 bg-amberwood text-forest-dark text-xs font-bold px-2 py-1 rounded">Grade A Export</span>
+              <h3 class="font-serif text-2xl font-bold">Belize Genuine Mahogany</h3>
+              <p class="text-xs text-amber-200 italic">Swietenia macrophylla</p>
+            </div>
+            <div class="p-6 space-y-3">
+              <p class="text-xs text-slate-600 leading-relaxed">World-renowned for dimensional stability, easy workability, and rich reddish-brown luster. Ideal for fine furniture, cabinetry, and boat trim.</p>
+              <div class="flex justify-between text-xs text-slate-500 pt-2 border-t">
+                <span>Density: Moderate</span>
+                <span>Janka: ~800 lbf</span>
+              </div>
+              <button onclick="selectSpeciesForQuote('Belize Genuine Mahogany')" class="w-full mt-2 bg-slate-100 hover:bg-forest hover:text-white text-forest font-semibold py-2 rounded text-xs transition">
+                Request Quote for Mahogany
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden border border-slate-200 hover:shadow-xl transition">
+            <div class="h-48 bg-stone-800 relative p-6 text-white flex flex-col justify-end" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent), #5a3825;">
+              <span class="absolute top-4 right-4 bg-emerald-600 text-white text-xs font-bold px-2 py-1 rounded">Heavy Structural</span>
+              <h3 class="font-serif text-2xl font-bold">Santa Maria</h3>
+              <p class="text-xs text-amber-200 italic">Calophyllum brasiliense</p>
+            </div>
+            <div class="p-6 space-y-3">
+              <p class="text-xs text-slate-600 leading-relaxed">Extremely tough, durable hardwood with interlocking grain. Preferred in Belize for heavy construction, decking, outdoor furniture, and structural beams.</p>
+              <div class="flex justify-between text-xs text-slate-500 pt-2 border-t">
+                <span>Density: High</span>
+                <span>Janka: ~1,150 lbf</span>
+              </div>
+              <button onclick="selectSpeciesForQuote('Santa Maria')" class="w-full mt-2 bg-slate-100 hover:bg-forest hover:text-white text-forest font-semibold py-2 rounded text-xs transition">
+                Request Quote for Santa Maria
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden border border-slate-200 hover:shadow-xl transition">
+            <div class="h-48 bg-yellow-950 relative p-6 text-white flex flex-col justify-end" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent), #9c6838;">
+              <span class="absolute top-4 right-4 bg-teak text-white text-xs font-bold px-2 py-1 rounded">Versatile Millwork</span>
+              <h3 class="font-serif text-2xl font-bold">Yemeri</h3>
+              <p class="text-xs text-amber-200 italic">Vochysia hondurensis</p>
+            </div>
+            <div class="p-6 space-y-3">
+              <p class="text-xs text-slate-600 leading-relaxed">Light golden-yellow wood with smooth texture. Superior performance for interior paneling, ceiling linings, siding, and general carpentry.</p>
+              <div class="flex justify-between text-xs text-slate-500 pt-2 border-t">
+                <span>Density: Medium</span>
+                <span>Janka: ~650 lbf</span>
+              </div>
+              <button onclick="selectSpeciesForQuote('Yemeri')" class="w-full mt-2 bg-slate-100 hover:bg-forest hover:text-white text-forest font-semibold py-2 rounded text-xs transition">
+                Request Quote for Yemeri
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-10">
+          <button onclick="showPage('catalog')" class="inline-flex items-center gap-2 text-forest font-bold hover:text-teak transition text-sm">
+            View All 7 Belize Hardwood & Pine Species Available <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </section>
+    </section>
+
+    <!-- PAGE 2: ABOUT US -->
+    <section id="page-about" class="page-section hidden py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mx-auto text-center mb-12">
+          <span class="text-xs font-bold uppercase tracking-wider text-teak">Belize Sawmill Specialists</span>
+          <h1 class="font-serif text-3xl sm:text-5xl font-bold text-forest mt-1">About AZ Tech Frida</h1>
+          <p class="text-slate-600 mt-3 text-sm sm:text-base">
+            Located at Mile 19 ½ on the Phillip Goldson Highway in Sandhill, Belize District, AZ Tech Frida is a premier wood processing and timber supply enterprise.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+          <div class="space-y-4">
+            <h2 class="font-serif text-2xl font-bold text-forest">Our Infrastructure & Milling Capability</h2>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              AZ Tech Frida combines modern timber processing technology with strict sustainable forestry compliance supervised under Belize Forest Department frameworks.
+            </p>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              From heavy log band-sawing to precision multi-blade resawing, planers for Surfaced 4 Sides (S4S), and kiln-drying chambers, our Sandhill facility delivers precision-cut lumber meeting exact tolerances.
+            </p>
+            
+            <div class="space-y-2 pt-2">
+              <div class="flex items-start gap-3">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-teak shrink-0 mt-0.5"></i>
+                <span class="text-xs sm:text-sm text-slate-700 font-medium">Log processing from managed forest concessions in Belize.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-teak shrink-0 mt-0.5"></i>
+                <span class="text-xs sm:text-sm text-slate-700 font-medium">Custom dimensions: Rough sawn, S2S, S4S, tongue & groove siding.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-teak shrink-0 mt-0.5"></i>
+                <span class="text-xs sm:text-sm text-slate-700 font-medium">Dual Export Shipping Facilities: Seamless container dispatch via Big Creek Port and coastal transport via Bomba Dock.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-forest text-white p-8 rounded-2xl shadow-xl relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 opacity-10 text-white">
+              <i data-lucide="trees" class="w-64 h-64"></i>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-amberwood mb-4">Official Operations Profile</h3>
+            <ul class="space-y-4 text-xs sm:text-sm text-slate-200">
+              <li class="border-b border-forest-light pb-2">
+                <strong class="text-white block">Facility Headquarters:</strong>
+                Mile 19 ½, Phillip Goldson Highway, Sandhill, Belize District
+              </li>
+              <li class="border-b border-forest-light pb-2">
+                <strong class="text-white block">Primary Export Hubs:</strong>
+                Big Creek Port (Stann Creek District) / Bomba Dock (Belize District)
+              </li>
+              <li class="border-b border-forest-light pb-2">
+                <strong class="text-white block">Direct Mobile / Orders Line:</strong>
+                # 501 603 9000
+              </li>
+              <li>
+                <strong class="text-white block">Specializations:</strong>
+                Lumber supply, custom dimensions, export grade grading, kiln drying, live edge slabs.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PAGE 3: WOOD SPECIES CATALOG -->
+    <section id="page-catalog" class="page-section hidden py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-teak">Belize Forest Yields</span>
+            <h1 class="font-serif text-3xl font-bold text-forest mt-1">Timber & Wood Species Catalog</h1>
+            <p class="text-xs sm:text-sm text-slate-600">Select any species to instantly populate your quote request form.</p>
+          </div>
+
+          <!-- Search / Filter -->
+          <div class="flex items-center gap-2">
+            <div class="relative">
+              <input type="text" id="species-search" onkeyup="filterSpecies()" placeholder="Search species..." class="pl-8 pr-4 py-2 border rounded-lg text-xs w-48 focus:ring-2 focus:ring-teak outline-none">
+              <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-2.5 top-2.5"></i>
+            </div>
+          </div>
+        </div>
+
+        <div id="species-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Species 1 -->
+          <div class="species-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition" data-name="mahogany">
+            <div class="flex justify-between items-start mb-2">
+              <div>
+                <h3 class="font-serif text-xl font-bold text-forest">Genuine Mahogany</h3>
+                <p class="text-xs text-teak italic">Swietenia macrophylla</p>
+              </div>
+              <span class="bg-amber-100 text-amber-900 text-[10px] font-bold px-2 py-0.5 rounded">Premium Hardwood</span>
+            </div>
+            <p class="text-xs text-slate-600 mb-4">Rich reddish-brown, highly stable with excellent grain consistency. High resistance to decay and warping.</p>
+            <div class="bg-slate-50 p-3 rounded text-xs space-y-1 mb-4 text-slate-700">
+              <div class="flex justify-between"><span>Common Uses:</span> <span class="font-medium">Furniture, Doors, Yacht Interior</span></div>
+              <div class="flex justify-between"><span>Workability:</span> <span class="font-medium">Excellent</span></div>
+              <div class="flex justify-between"><span>Available Finishes:</span> <span class="font-medium">Rough Sawn, S4S, KD</span></div>
+            </div>
+            <button onclick="selectSpeciesForQuote('Belize Genuine Mahogany')" class="w-full bg-forest text-white py-2 rounded text-xs font-semibold hover:bg-forest-light transition flex items-center justify-center gap-1">
+              <i data-lucide="plus-circle" class="w-4 h-4"></i> Add to Order Calculator
+            </button>
+          </div>
+
+          <!-- Species 2 -->
+          <div class="species-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition" data-name="santa maria">
+            <div class="flex justify-between items-start mb-2">
+              <div>
+                <h3 class="font-serif text-xl font-bold text-forest">Santa Maria</h3>
+                <p class="text-xs text-teak italic">Calophyllum brasiliense</p>
+              </div>
+              <span class="bg-emerald-100 text-emerald-900 text-[10px] font-bold px-2 py-0.5 rounded">Heavy Structural</span>
+            </div>
+            <p class="text-xs text-slate-600 mb-4">Pinkish to reddish-brown wood. High bending strength making it ideal for structural beams and exterior decking.</p>
+            <div class="bg-slate-50 p-3 rounded text-xs space-y-1 mb-4 text-slate-700">
+              <div class="flex justify-between"><span>Common Uses:</span> <span class="font-medium">Framing, Beams, Decking, Docks</span></div>
+              <div class="flex justify-between"><span>Workability:</span> <span class="font-medium">Good (Dense)</span></div>
+              <div class="flex justify-between"><span>Available Finishes:</span> <span class="font-medium">Rough Cut, Custom Beams</span></div>
+            </div>
+            <button onclick="selectSpeciesForQuote('Santa Maria')" class="w-full bg-forest text-white py-2 rounded text-xs font-semibold hover:bg-forest-light transition flex items-center justify-center gap-1">
+              <i data-lucide="plus-circle" class="w-4 h-4"></i> Add to Order Calculator
+            </button>
+          </div>
+
+          <!-- Species 3 -->
+          <div class="species-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition" data-name="yemeri">
+            <div class="flex justify-between items-start mb-2">
+              <div>
+                <h3 class="font-serif text-xl font-bold text-forest">Yemeri</h3>
+                <p class="text-xs text-teak italic">Vochysia hondurensis</p>
+              </div>
+              <span class="bg-amber-100 text-amber-900 text-[10px] font-bold px-2 py-0.5 rounded">Light Hardwood</span>
+            </div>
+            <p class="text-xs text-slate-600 mb-4">Warm yellow to light brownish tint. Easy to plane and finish, popular for siding, ceiling lining, and interior trim.</p>
+            <div class="bg-slate-50 p-3 rounded text-xs space-y-1 mb-4 text-slate-700">
+              <div class="flex justify-between"><span>Common Uses:</span> <span class="font-medium">Interior Siding, Ceiling Boards, Boxes</span></div>
+              <div class="flex justify-between"><span>Workability:</span> <span class="font-medium">Very Easy</span></div>
+              <div class="flex justify-between"><span>Available Finishes:</span> <span class="font-medium">S4S, Tongue & Groove</span></div>
+            </div>
+            <button onclick="selectSpeciesForQuote('Yemeri')" class="w-full bg-forest text-white py-2 rounded text-xs font-semibold hover:bg-forest-light transition flex items-center justify-center gap-1">
+              <i data-lucide="plus-circle" class="w-4 h-4"></i> Add to Order Calculator
+            </button>
+          </div>
+
+          <!-- Species 4 -->
+          <div class="species-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition" data-name="caribbean pine">
+            <div class="flex justify-between items-start mb-2">
+              <div>
+                <h3 class="font-serif text-xl font-bold text-forest">Caribbean Pine</h3>
+                <p class="text-xs text-teak italic">Pinus caribaea</p>
+              </div>
+              <span class="bg-blue-100 text-blue-900 text-[10px] font-bold px-2 py-0.5 rounded">Softwood Construction</span>
+            </div>
+            <p class="text-xs text-slate-600 mb-4">Sourced locally in Belize. Excellent strength-to-weight ratio for rafters, trusses, and general framing lumber.</p>
+            <div class="bg-slate-50 p-3 rounded text-xs space-y-1 mb-4 text-slate-700">
+              <div class="flex justify-between"><span>Common Uses:</span> <span class="font-medium">Roof Trusses, House Framing, Studs</span></div>
+              <div class="flex justify-between"><span>Workability:</span> <span class="font-medium">Fast Machine Cutting</span></div>
+              <div class="flex justify-between"><span>Available Finishes:</span> <span class="font-medium">Rough, S4S, Treated/Untreated</span></div>
+            </div>
+            <button onclick="selectSpeciesForQuote('Caribbean Pine')" class="w-full bg-forest text-white py-2 rounded text-xs font-semibold hover:bg-forest-light transition flex items-center justify-center gap-1">
+              <i data-lucide="plus-circle" class="w-4 h-4"></i> Add to Order Calculator
+            </button>
+          </div>
+
+          <!-- Species 5 -->
+          <div class="species-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition" data-name="rosewood">
+            <div class="flex justify-between items-start mb-2">
+              <div>
+                <h3 class="font-serif text-xl font-bold text-forest">Honduran Rosewood</h3>
+                <p class="text-xs text-teak italic">Dalbergia stevensonii</p>
+              </div>
+              <span class="bg-purple-100 text-purple-900 text-[10px] font-bold px-2 py-0.5 rounded">Exotic Hardwood</span>
+            </div>
+            <p class="text-xs text-slate-600 mb-4">Ultra-dense, dark purple-brown with striking black figure bands. Premium acoustic qualities for musical instruments & turnings.</p>
+            <div class="bg-slate-50 p-3 rounded text-xs space-y-1 mb-4 text-slate-700">
+              <div class="flex justify-between"><span>Common Uses:</span> <span class="font-medium">Instruments, Fine Crafts, Inlays</span></div>
+              <div class="flex justify-between"><span>Density:</span> <span class="font-medium">Very High</span></div>
+              <div class="flex justify-between"><span>Permit Notice:</span> <span class="font-medium">CITES & Forest Dept Compliant</span></div>
+            </div>
+            <button onclick="selectSpeciesForQuote('Honduran Rosewood')" class="w-full bg-forest text-white py-2 rounded text-xs font-semibold hover:bg-forest-light transition flex items-center justify-center gap-1">
+              <i data-lucide="plus-circle" class="w-4 h-4"></i> Add to Order Calculator
+            </button>
+          </div>
+
+          <!-- Species 6 -->
+          <div class="species-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition" data-name="cabbage bark nargusta">
+            <div class="flex justify-between items-start mb-2">
+              <div>
+                <h3 class="font-serif text-xl font-bold text-forest">Cabbage Bark / Nargusta</h3>
+                <p class="text-xs text-teak italic">Andira inermis / Terminalia amazonia</p>
+              </div>
+              <span class="bg-stone-100 text-stone-900 text-[10px] font-bold px-2 py-0.5 rounded">Heavy Duty</span>
+            </div>
+            <p class="text-xs text-slate-600 mb-4">Dense, extremely durable against marine borers and insects. Superior choice for heavy bridge timber and outdoor pilings.</p>
+            <div class="bg-slate-50 p-3 rounded text-xs space-y-1 mb-4 text-slate-700">
+              <div class="flex justify-between"><span>Common Uses:</span> <span class="font-medium">Bridge Timbers, Flooring, Heavy Decking</span></div>
+              <div class="flex justify-between"><span>Durability:</span> <span class="font-medium">Extreme Weather & Insect Resistance</span></div>
+            </div>
+            <button onclick="selectSpeciesForQuote('Cabbage Bark / Nargusta')" class="w-full bg-forest text-white py-2 rounded text-xs font-semibold hover:bg-forest-light transition flex items-center justify-center gap-1">
+              <i data-lucide="plus-circle" class="w-4 h-4"></i> Add to Order Calculator
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 4: MILLING & SERVICES -->
+    <section id="page-services" class="page-section hidden py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-12">
+          <span class="text-xs font-bold uppercase tracking-wider text-teak">Custom Woodworking & Processing</span>
+          <h1 class="font-serif text-3xl sm:text-5xl font-bold text-forest mt-1">Milling & Processing Services</h1>
+          <p class="text-slate-600 mt-2 text-sm">We process raw logs directly into ready-to-use construction and woodworking material.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-lg bg-forest/10 text-forest flex items-center justify-center font-bold">
+              <i data-lucide="saw" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-forest">Custom Dimensional Sawing</h3>
+            <p class="text-xs text-slate-600">Precision bandsaw cutting to non-standard or large timber specifications. Post sizes up to 12" x 12" and lengths up to 24 feet.</p>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-lg bg-teak/10 text-teak flex items-center justify-center font-bold">
+              <i data-lucide="layers" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-forest">Surfacing & S4S Planing</h3>
+            <p class="text-xs text-slate-600">Smooth Surfaced 4 Sides (S4S) or S2S planing to ensure exact uniform thickness and width for joinery and cabinet making.</p>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-lg bg-amberwood/20 text-forest flex items-center justify-center font-bold">
+              <i data-lucide="flame" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-forest">Kiln Drying (KD)</h3>
+            <p class="text-xs text-slate-600">Controlled chamber moisture reduction down to 8% – 12% moisture content to prevent splitting, checking, or warping during export.</p>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-lg bg-forest/10 text-forest flex items-center justify-center font-bold">
+              <i data-lucide="box" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-forest">Live Edge Slabs</h3>
+            <p class="text-xs text-slate-600">Book-matched live edge timber slabs cut from Mahogany, Santa Maria, and Guanacaste logs for custom dining tables and island tops.</p>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-lg bg-teak/10 text-teak flex items-center justify-center font-bold">
+              <i data-lucide="ship" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-forest">Export Stacking & Bundling</h3>
+            <p class="text-xs text-slate-600">ISPM 15 heat treatment compliance, protective wrapping, and container strapping optimized for dispatch through Big Creek Port or Bomba Dock.</p>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-lg bg-amberwood/20 text-forest flex items-center justify-center font-bold">
+              <i data-lucide="truck" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-forest">Logistics & Direct Delivery</h3>
+            <p class="text-xs text-slate-600">Flatbed truck delivery service across all Belize districts including Cayo, Stann Creek, Corozal, and Belize City.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 5: INSTANT ORDER & ENQUIRY FACILITY -->
+    <section id="page-order" class="page-section hidden py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mx-auto text-center mb-10">
+          <span class="text-xs font-bold uppercase tracking-wider text-teak">Instant Sawmill Quotation</span>
+          <h1 class="font-serif text-3xl sm:text-4xl font-bold text-forest mt-1">Place Order / Timber Enquiry</h1>
+          <p class="text-xs sm:text-sm text-slate-600">Calculate total Board Feet (BF) for your project and submit your enquiry directly to AZ Tech Frida.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          
+          <!-- ORDER CALCULATOR FORM -->
+          <div class="lg:col-span-8 bg-white rounded-2xl shadow-lg border border-slate-200 p-6 sm:p-8">
+            
+            <form id="order-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+              
+              <!-- Contact Details -->
+              <div>
+                <h3 class="font-serif text-lg font-bold text-forest border-b pb-2 mb-4 flex items-center gap-2">
+                  <i data-lucide="user" class="w-5 h-5 text-teak"></i> 1. Contact & Business Details
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Your Full Name / Company *</label>
+                    <input type="text" id="cust-name" required placeholder="e.g. John Doe / Belize Construction Ltd" class="w-full p-2.5 text-xs border rounded-lg focus:ring-2 focus:ring-teak outline-none">
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Phone / WhatsApp Number *</label>
+                    <input type="tel" id="cust-phone" required placeholder="e.g. +501 610-0000" class="w-full p-2.5 text-xs border rounded-lg focus:ring-2 focus:ring-teak outline-none">
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Email Address</label>
+                    <input type="email" id="cust-email" placeholder="john@example.com" class="w-full p-2.5 text-xs border rounded-lg focus:ring-2 focus:ring-teak outline-none">
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Delivery / Export Port Destination</label>
+                    <select id="cust-destination" class="w-full p-2.5 text-xs border rounded-lg focus:ring-2 focus:ring-teak outline-none bg-white">
+                      <option value="Sandhill Pickup (Mile 19 1/2)">Sandhill Yard Pickup (Mile 19 ½)</option>
+                      <option value="Belize District Local Delivery">Belize District Delivery</option>
+                      <option value="Cayo / Belmopan Area">Cayo / Belmopan</option>
+                      <option value="Stann Creek / Placencia">Stann Creek / Placencia</option>
+                      <option value="Export via Big Creek Port">Export via Big Creek Port</option>
+                      <option value="Export via Bomba Dock">Export via Bomba Dock</option>
+                      <option value="International Sea Freight">Other International Freight</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Timber Specifications -->
+              <div>
+                <h3 class="font-serif text-lg font-bold text-forest border-b pb-2 mb-4 flex items-center gap-2">
+                  <i data-lucide="ruler" class="w-5 h-5 text-teak"></i> 2. Timber Specifications & Board Feet Calculation
+                </h3>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Select Timber Species *</label>
+                    <select id="order-species" required class="w-full p-2.5 text-xs border rounded-lg focus:ring-2 focus:ring-teak outline-none bg-white">
+                      <option value="Belize Genuine Mahogany">Belize Genuine Mahogany</option>
+                      <option value="Santa Maria">Santa Maria</option>
+                      <option value="Yemeri">Yemeri</option>
+                      <option value="Caribbean Pine">Caribbean Pine</option>
+                      <option value="Honduran Rosewood">Honduran Rosewood</option>
+                      <option value="Cabbage Bark / Nargusta">Cabbage Bark / Nargusta</option>
+                      <option value="Other / Mixed Belize Hardwoods">Other / Custom Request</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Surface Finish / Milling Option</label>
+                    <select id="order-finish" class="w-full p-2.5 text-xs border rounded-lg focus:ring-2 focus:ring-teak outline-none bg-white">
+                      <option value="Rough Sawn">Rough Sawn (Unplaned)</option>
+                      <option value="S4S (Surfaced 4 Sides)">S4S (Surfaced 4 Sides)</option>
+                      <option value="S2S (Surfaced 2 Sides)">S2S (Surfaced 2 Sides)</option>
+                      <option value="Kiln Dried (KD)">Kiln Dried (KD) - 10% Moisture</option>
+                      <option value="Tongue & Groove Siding">Tongue & Groove Siding</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Dimension Rows -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+                  <div class="flex justify-between items-center">
+                    <span class="text-xs font-bold text-forest">Dimensions List</span>
+                    <span class="text-[10px] text-slate-500">Board Feet = (T" × W" × L') / 12 × Qty</span>
+                  </div>
+
+                  <div id="dimension-rows" class="space-y-2">
+                    <!-- Row 1 -->
+                    <div class="grid grid-cols-12 gap-2 items-center text-xs">
+                      <div class="col-span-3">
+                        <label class="block text-[10px] text-slate-500">Thick (in)</label>
+                        <input type="number" step="0.25" value="2" class="dim-t w-full p-2 border rounded" oninput="calculateFullOrder()">
+                      </div>
+                      <div class="col-span-3">
+                        <label class="block text-[10px] text-slate-500">Width (in)</label>
+                        <input type="number" step="0.5" value="6" class="dim-w w-full p-2 border rounded" oninput="calculateFullOrder()">
+                      </div>
+                      <div class="col-span-3">
+                        <label class="block text-[10px] text-slate-500">Length (ft)</label>
+                        <input type="number" step="1" value="12" class="dim-l w-full p-2 border rounded" oninput="calculateFullOrder()">
+                      </div>
+                      <div class="col-span-3">
+                        <label class="block text-[10px] text-slate-500">Pcs Qty</label>
+                        <input type="number" step="1" value="50" class="dim-qty w-full p-2 border rounded" oninput="calculateFullOrder()">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Additional Notes -->
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Project Notes / Specific Tolerances</label>
+                <textarea id="cust-notes" rows="3" placeholder="Specify if you require export bundling, specific log cuts, or delivery schedules..." class="w-full p-2.5 text-xs border rounded-lg focus:ring-2 focus:ring-teak outline-none"></textarea>
+              </div>
+
+              <!-- Submit Buttons -->
+              <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                <button type="submit" class="flex-1 bg-forest hover:bg-forest-dark text-white font-bold py-3 px-4 rounded-lg shadow text-xs uppercase tracking-wider transition flex items-center justify-center gap-2">
+                  <i data-lucide="send" class="w-4 h-4"></i> Submit Quote Request
+                </button>
+                <button type="button" onclick="sendViaWhatsApp()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-lg shadow text-xs uppercase tracking-wider transition flex items-center justify-center gap-2">
+                  <i data-lucide="message-circle" class="w-4 h-4"></i> Send via WhatsApp
+                </button>
+              </div>
+
+            </form>
+          </div>
+
+          <!-- SUMMARY SIDEBAR -->
+          <div class="lg:col-span-4 space-y-6">
+            
+            <div class="bg-forest text-white rounded-2xl p-6 shadow-xl sticky top-28 border border-teak/40">
+              <h3 class="font-serif text-xl font-bold text-amberwood mb-4 pb-2 border-b border-forest-light">Order Summary</h3>
+              
+              <div class="space-y-4 text-xs">
+                <div class="flex justify-between items-center text-slate-300">
+                  <span>Selected Species:</span>
+                  <span id="summary-species" class="font-bold text-white text-right">Mahogany</span>
+                </div>
+
+                <div class="flex justify-between items-center text-slate-300">
+                  <span>Milling Option:</span>
+                  <span id="summary-finish" class="font-bold text-white text-right">Rough Sawn</span>
+                </div>
+
+                <div class="pt-3 border-t border-forest-light flex justify-between items-end">
+                  <div>
+                    <p class="text-slate-300 text-[11px]">Total Volume</p>
+                    <p class="text-2xl font-bold font-mono text-amberwood" id="summary-bf">600.0 BF</p>
+                  </div>
+                  <div class="text-right">
+                    <p class="text-slate-400 text-[10px]">Est. Board Feet</p>
+                  </div>
+                </div>
+
+                <div class="bg-forest-dark p-3 rounded-lg text-[11px] text-slate-300 space-y-1.5 border border-forest-light">
+                  <p class="flex items-center gap-1 font-semibold text-white"><i data-lucide="info" class="w-3.5 h-3.5 text-amberwood"></i> AZ Tech Frida Direct Support</p>
+                  <p>Sawmill Mile 19 ½ Phillip Goldson Hwy Sandhill</p>
+                  <p class="text-amberwood font-mono font-bold">+501 603-9000</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Direct Contact Info Card -->
+            <div class="bg-white rounded-xl p-5 border border-slate-200 text-xs space-y-3">
+              <h4 class="font-bold text-forest uppercase tracking-wider text-[11px]">Export & Logistics Dispatch</h4>
+              <p class="text-slate-600">We regularly coordinate ocean container freight out of <strong>Big Creek Port</strong> and barge loading at <strong>Bomba Dock</strong>.</p>
+              <a href="tel:+5016039000" class="inline-flex items-center gap-2 text-teak font-bold hover:underline">
+                <i data-lucide="phone-call" class="w-4 h-4"></i> Call # 501 603 9000
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-forest-dark text-slate-400 text-xs py-12 border-t border-forest-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        
+        <div class="space-y-3">
+          <div class="flex items-center space-x-2 text-white font-serif font-bold text-lg">
+            <i data-lucide="trees" class="w-5 h-5 text-teak"></i>
+            <span>AZ TECH FRIDA</span>
+          </div>
+          <p class="text-slate-400 leading-relaxed">
+            Leading sawmill and timber export operator in Sandhill, Belize District. Quality structural lumber and decorative hardwoods.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-white font-semibold mb-3 uppercase tracking-wider text-[11px]">Sandhill Sawmill Address</h4>
+          <p class="leading-relaxed">
+            Mile 19 ½, Phillip Goldson Highway,<br>
+            Sandhill, Belize District,<br>
+            Belize, Central America
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-white font-semibold mb-3 uppercase tracking-wider text-[11px]">Export Ports & Contact</h4>
+          <p class="leading-relaxed">
+            <strong>Ports:</strong> Big Creek Port / Bomba Dock<br>
+            <strong>Mobile:</strong> # 501 603 9000<br>
+            <strong>WhatsApp:</strong> +501 603 9000
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-white font-semibold mb-3 uppercase tracking-wider text-[11px]">PWA App Status</h4>
+          <p class="mb-2">Offline storage enabled for forestry managers.</p>
+          <button onclick="installPWA()" class="bg-teak hover:bg-teak-light text-white font-semibold px-3 py-1.5 rounded transition text-xs flex items-center gap-1.5">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i> Install App on Mobile
+          </button>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-forest-light/40 flex flex-col sm:flex-row justify-between items-center text-slate-500 text-[11px] gap-2">
+        <p>© <span id="year"></span> AZ Tech Frida. All Rights Reserved. Sandhill, Belize.</p>
+        <p>Sustainable Forestry & Timber Milling Operations</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    // Initialize icons & date
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      document.getElementById('year').textContent = new Date().getFullYear();
+      calcQuickBf();
+      calculateFullOrder();
+      registerServiceWorker();
+    });
+
+    // Page Switching Logic
+    function showPage(pageId) {
+      document.querySelectorAll('.page-section').forEach(el => el.classList.add('hidden'));
+      const activePage = document.getElementById('page-' + pageId);
+      if (activePage) {
+        activePage.classList.remove('hidden');
+      }
+      
+      // Nav active styling
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('text-amberwood');
+        btn.classList.add('text-slate-200');
+      });
+      const activeNav = document.getElementById('nav-' + pageId);
+      if (activeNav) {
+        activeNav.classList.add('text-amberwood');
+        activeNav.classList.remove('text-slate-200');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    // Quick BF Calculation
+    function calcQuickBf() {
+      const t = parseFloat(document.getElementById('quick-t').value) || 0;
+      const w = parseFloat(document.getElementById('quick-w').value) || 0;
+      const l = parseFloat(document.getElementById('quick-l').value) || 0;
+      const qty = parseFloat(document.getElementById('quick-qty').value) || 0;
+
+      const bf = (t * w * l / 12) * qty;
+      document.getElementById('quick-result').textContent = bf.toFixed(1) + ' BF';
+    }
+
+    function transferToOrder() {
+      showPage('order');
+    }
+
+    // Full Order BF Calculation
+    function calculateFullOrder() {
+      const rows = document.querySelectorAll('#dimension-rows .grid');
+      let totalBf = 0;
+
+      rows.forEach(row => {
+        const t = parseFloat(row.querySelector('.dim-t').value) || 0;
+        const w = parseFloat(row.querySelector('.dim-w').value) || 0;
+        const l = parseFloat(row.querySelector('.dim-l').value) || 0;
+        const qty = parseFloat(row.querySelector('.dim-qty').value) || 0;
+        totalBf += (t * w * l / 12) * qty;
+      });
+
+      const species = document.getElementById('order-species').value;
+      const finish = document.getElementById('order-finish').value;
+
+      document.getElementById('summary-species').textContent = species;
+      document.getElementById('summary-finish').textContent = finish;
+      document.getElementById('summary-bf').textContent = totalBf.toFixed(1) + ' BF';
+    }
+
+    // Select species from catalog
+    function selectSpeciesForQuote(speciesName) {
+      showPage('order');
+      const speciesSelect = document.getElementById('order-species');
+      speciesSelect.value = speciesName;
+      calculateFullOrder();
+    }
+
+    // Species Catalog Search Filter
+    function filterSpecies() {
+      const query = document.getElementById('species-search').value.toLowerCase();
+      const cards = document.querySelectorAll('.species-card');
+      cards.forEach(card => {
+        const name = card.getAttribute('data-name');
+        if (name.includes(query)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // Form Submissions
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('cust-name').value;
+      const phone = document.getElementById('cust-phone').value;
+      const bf = document.getElementById('summary-bf').textContent;
+
+      alert(`Thank you ${name}! Your enquiry for ${bf} has been received. Our Sandhill team will contact you at ${phone} shortly.`);
+    }
+
+    function sendViaWhatsApp() {
+      const name = document.getElementById('cust-name').value || 'Customer';
+      const phone = document.getElementById('cust-phone').value || 'N/A';
+      const species = document.getElementById('order-species').value;
+      const finish = document.getElementById('order-finish').value;
+      const dest = document.getElementById('cust-destination').value;
+      const bf = document.getElementById('summary-bf').textContent;
+      const notes = document.getElementById('cust-notes').value || 'None';
+
+      const msg = `Hello AZ Tech Frida!%0A%0A*New Timber Order Request*%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Species:* ${encodeURIComponent(species)}%0A*Finish:* ${encodeURIComponent(finish)}%0A*Est. Volume:* ${encodeURIComponent(bf)}%0A*Destination/Port:* ${encodeURIComponent(dest)}%0A*Notes:* ${encodeURIComponent(notes)}`;
+
+      window.open(`https://wa.me/5016039000?text=${msg}`, '_blank');
+    }
+
+    // PWA Installation Handling
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      document.getElementById('pwa-install-banner').classList.remove('hidden');
+    });
+
+    function installPWA() {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('User accepted PWA installation');
+          }
+          deferredPrompt = null;
+          document.getElementById('pwa-install-banner').classList.add('hidden');
+        });
+      } else {
+        alert('To install AZ Tech Frida App on iOS/Android: Tap "Share" or "Browser Menu" and select "Add to Home Screen".');
+      }
+    }
+
+    function dismissPwaBanner() {
+      document.getElementById('pwa-install-banner').classList.add('hidden');
+    }
+
+    // Dummy Service Worker Registration
+    function registerServiceWorker() {
+      if ('serviceWorker' in navigator) {
+        const swBlob = new Blob([`
+          self.addEventListener('install', (e) => self.skipWaiting());
+          self.addEventListener('activate', (e) => self.clients.claim());
+          self.addEventListener('fetch', (e) => e.respondWith(fetch(e.request).catch(() => new Response('Offline'))));
+        `], { type: 'application/javascript' });
+        
+        const swUrl = URL.createObjectURL(swBlob);
+        navigator.serviceWorker.register(swUrl).catch(err => console.log('SW registration skipped:', err));
+      }
+    }
+  </script>
+</body>
+</html>
